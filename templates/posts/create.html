@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block title %}Create - NouaraCenter{% endblock title %}
+
+    {% block text1 %}إرفع منشور{% endblock text1 %}
+
+    {% block body %}
+    
+    <style>
+        html,body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+    
+        }
+    
+        .center1 {
+            text-align: center;
+        }
+        
+        .center {
+        margin: auto;
+        width: 50%;
+        border: 3px solid rgb(89, 184, 89);
+        padding: 10px;
+        }
+    
+    </style>
+
+    {% if posted %}
+        <center>
+            <a href="{% url 'view-home' %}"><button type="button" class="btn btn-primary rounded-pill center1 mt-3">الرجوع إلى المنشورات</button></a>
+        </center>
+
+    {% else %}
+        <div class="mb-5 mt-3 center" style="width: 20rem">
+            <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ post.as_p }}
+            </div>     
+            <div class="center1">
+                <p>
+                    <button type="button submit" class="btn btn-outline-primary rounded-pill">تأكيد</button>
+                    <a href="{% url 'view-home' %}"><button type="button" class="btn btn-outline-danger rounded-pill">إلغاء</button></a>
+                </p>
+            </div>    
+        </form>
+    {% endif %}
+
+    {% endblock body %}
+    

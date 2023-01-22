@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block title %}Comment - NouaraCenter{% endblock title %}
+
+    {% block text1 %}تعليق على منشور{% endblock text1 %}
+
+    {% block body %}
+    
+    <style>
+        html,body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+    
+        }
+    
+        .center1 {
+            text-align: center;
+        }
+        
+        .center {
+        margin: auto;
+        width: 25rem;
+        border: 3px solid rgb(89, 184, 89);
+        padding: 10px;
+        }
+    
+    </style>
+
+    {% if posted %}
+        <center>
+            <a href="{% url 'view-home' %}"><button type="button" class="btn btn-primary rounded-pill center1 mt-3">الرجوع إلى المنشورات</button></a>
+        </center>
+
+    {% else %}
+        <div class="mb-5 mt-3 center" style="width: 25rem">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>     
+            <div class="center1">
+                <p>
+                    <button type="button submit" class="btn btn-outline-primary rounded-pill">تأكيد</button>
+                    {% if post.comments.count != 0 %}
+                        <a href="{% url 'comments' post.pk %}"><button type="button" class="btn btn-outline-danger rounded-pill">إلغاء</button></a>
+                    {% else %}
+                    <a href="{% url 'view-home' %}"><button type="button" class="btn btn-outline-danger rounded-pill">إلغاء</button></a>
+                    {% endif %}
+                </p>
+            </div>    
+        </form>
+    {% endif %}
+
+    {% endblock body %}
+    

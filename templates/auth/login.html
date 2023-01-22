@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Login - NouaraCenter{% endblock title %}
+
+
+{% block loginactive %}active{% endblock loginactive %}
+
+{% block text1 %}! تسجيل الدخول{% endblock text1 %}
+{% block text2 %}...الرجاء تسجيل الدخول و ملأ جميع الخانات الأتية{% endblock text2 %}
+
+
+{% block body %}
+
+
+<br></br>
+
+<style>
+    .center1 {
+    text-align: center;
+    }
+
+    .center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(89, 184, 89);
+    padding: 10px;
+    }
+
+</style>
+
+
+    <div class="mb-5 center" style="width: 20rem">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div>
+            <input class="form-control" name="username" aria-describedby="emailHelp" placeholder="أدخل إسم المستخدم">
+          </div>
+          <br>
+          <div>
+            <input type="password" class="form-control" name="password" placeholder="أدخل كلمة السر">
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3"><a href="{% url 'signup' %}">سجل حساب جديد</a> ليس لديك حساب؟ </div>
+        </div>
+        <div class="center1">
+            <button type="button submit" class="btn btn-primary rounded-pill">Soumettre</button>
+        </div> 
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+    </form>
+    
+    
+    
+
+{% endblock body %}

@@ -1,0 +1,81 @@
+{% extends 'contactbase.html' %}
+
+
+{% block title %}Contact Us - NouaraCenter{% endblock title %}
+
+
+{% block contactactive %}active{% endblock contactactive %}
+
+
+{% block body %}
+
+<style>
+    html,body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+
+    }
+
+    .center1 {
+    text-align: center;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgb(89, 184, 89);
+  padding: 10px;
+}
+
+</style>
+
+
+<center>
+    <br></br>
+    
+    {% if submitted %}
+    <header class="text-center text-white masthead">
+        <div class="masthead-content">
+            <div class="container">
+                <h1 class="masthead-heading mb-0">{{msg1}}</h1>
+                <h2 class="masthead-subheading mb-0">{{msg2}}</h2>
+            </div>
+        </div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+    {% else %}
+        
+    <header class="text-center text-white masthead">
+        <div class="masthead-content">
+            <div class="container">
+                <h1 class="masthead-heading mb-0">{{msg3}}</h1>
+                <h2 class="masthead-subheading mb-0">{{msg4}}</h2>
+            </div>
+        </div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+</center>   
+    <div class="mb-5 mt-3 center" style="width: 20rem">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>   أو تواصل معنا عبر   <a href="https://www.facebook.com/NouaraCenter/">الفايسبوك </a></p>
+        </div>     
+        <div class="center1">
+            <button type="button submit" class="btn btn-primary rounded-pill">Soumettre</button>
+        </div>    
+        </form>
+    
+            
+    {% endif %}
+
+{% endblock body %}

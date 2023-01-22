@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+ مرحباً بكم في موقع مركز نوارة
+  !! {{ name }} أهلا
+ ...نرجو منك تفعيل حسابك عبر هذا الراب ادناه
+
+ رابط التفعيل: http://{{ domain }}{% url 'activate' uidb64=uid token=token %} 
+
+ {% endautoescape %}
