@@ -2,6 +2,7 @@
 
 # Installation
 Clone the repo and run `pip install -r requirements.txt` to install all the packages this app needs
+<br />
 **Note! Make sure `Python3` is installed!**
 
 # Run
